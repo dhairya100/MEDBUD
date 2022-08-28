@@ -18,7 +18,7 @@
       </button>
       <ul class="dropdown-menu">
         {% for med in meds %}
-        <li><a id="{{forloop.counter}}" href="javascript:medicine_click(this.id)" class="dropdown-item">{{ med.medicine_name }}   Expiry date : {{ med.expiry_date }}</a></li>
+        <button type="button"><li><a id="medicine{{forloop.counter}}" class="dropdown-item" onclick="getClickID()">{{ med.medicine_name }}   Expiry date : {{ med.expiry_date }}</a></li></button>
         {% endfor %}
       </ul>
       <br>
@@ -26,7 +26,7 @@
       <br>
       <div class="container">
         <div class="col-md-6">
-          <label for="inputEmail4" class="form-label">Medicine Name</label>
+          <label for="medicine_name" class="form-label">Medicine Name</label>
           <input style="width: 600px !important" name="medicine_nameget" class="form-control" id="medicine_name">
         </div>
     </div>
@@ -90,6 +90,12 @@
       var txttext = document.getElementById("medicine_name")
       var text = elem.text()
       txttext = text
+    }
+    function getClickID(){
+      elem = document.getElementById(event.target.id)
+      console.log(elem.innerText)
+      
+      document.getElementById("medicine_name").value = elem.innerText
     }
   </script>
 </center>
