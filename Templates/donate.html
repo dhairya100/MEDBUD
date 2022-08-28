@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block body %}
+<center>
+    <h1>USER DETAILS</h1>
+    <HR>
+        <br>
+        <br>
+    <div class="container">
+    <form class="row g-3" method="POST", action="/donatework" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="col-md-6">
+        <label for="full_name" class="form-label">Full Name</label>
+        <input name="full_name" class="form-control" id="full_name">
+      </div>
+      <div class="col-md-6">
+        <label for="phone" class="form-label">Phone</label>
+        <input name="phone" maxlength="10" minlength="10" class="form-control" id="phone">
+      </div>
+        <div class="col-md-6">
+          <label for="inputEmail" class="form-label">Email</label>
+          <input name="email" type="email" class="form-control" id="inputEmail">
+        </div>
+        <div class="col-12">
+          <label for="inputAddress" class="form-label">Address</label>
+          <input name="location1" type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+        </div>
+        <div class="col-12">
+          <label for="inputAddress2" class="form-label">Address 2</label>
+          <input name="location2" type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+        </div>
+        <div class="col-md-6">
+          <label for="inputAddress3" class="form-label">Address 3</label>
+          <input name="location3" type="text" class="form-control" id="inputAddress3">
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1>Medicine Details</h1>
+        <hr>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="container">
+            <label for="floatingInputGroup1"><b>MEDICINE NAME</b></label>
+            <div class="input-group mb-3">
+                <span class="input-group-text">@</span>
+                <div class="form-floating">
+                  <input name="medicine_name" type="text" class="form-control" id="floatingInputGroup1" placeholder="MEDICINE NAME">
+                  
+                </div>
+              </div>
+              <BR>
+                <label for="floatingInputGroup1"><B>EXPIRY DATE</B></label>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">@</span>
+                    <div class="form-floating">
+                      <input name="expiry_date" type="text" class="form-control" id="floatingInputGroup1" placeholder="EXPIRY DATE">
+                    </div>
+                  </div>
+                  <BR>
+                    <label>ENTER BACK IMAGE</label>
+                    <div class="input-group mb-3">
+                        
+                        <br>
+                        <label class="input-group-text" for="inputGroupFile01">Upload</label>
+                        <input name = "med_photo" type="file" class="form-control" id="inputGroupFile01">
+                      </div>
+                          <BR>
+                            <BR>
+
+        <div class="col-12">
+          <button type="submit" class="btn btn-success">Donate</button>
+        </div>
+      </form>
+    </div>
+    </center>
+{% endblock body %}

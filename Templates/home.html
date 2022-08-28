@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block body %}
+<style>
+    h1
+{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+h3
+{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-left: 100px;
+    margin-right: 100px;
+    color: black;
+    line-height: 30px;
+    font-weight: 30;
+    word-spacing: 8;
+}
+body{
+    /* {% comment %} background-image: linear-gradient(to right top, #33a0f1, #2591d9, #1882c1, #0a73aa, #006494); {% endcomment %} */
+    background-image: url('https://images.pexels.com/photos/161449/medical-tablets-pills-drug-161449.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+</style>
+<div>
+        <center>
+        <h1 style="color: black">WELCOME TO MEDBUD</h1>
+        <hr>
+        <br>
+        <h3>THIS WEBSITE'S SOLE PURPOSE IS TOO BE ABLE TO PROVIDE MEDICINES TO ALL CORNERS OF THIS COUNTRY.
+             WE HAVE DESIGNED THIS WEBSITE SO THAT YOU CAN DONATE A MEDICINE TO US. A USER IN NEED OF THAT MEDICINE WOULD BUY IT FROM
+            OUR WEBSITE. OUR WEBSITE IS A TOOL OR A MEDIUM OF COMMUNICATION BETWEEN THE CITIZENS OF OUR COUNTRY. WE CAN SHARE ALL
+        THE MEDICINES TO THE NEEDY INSTEAD OF DISPOSING IT AFTER IT REACHES ITS EXPIRY DATE. WE ALSO HAVE A GREAT OFFER FOR THOSE WHO
+    DONATE. IF YOU DONATE A MEDICINE TO OUR WEBSITE YOU CAN BUY A MEDICINE FOR FREE, NO MATTER WHAT IT COSTS.</h3>
+    <BR>
+        <br>
+        <br>
+        <br>
+        {% if user.is_authenticated %}
+        <div style="width: 100%; text-align: center;">
+            <div style="display: inline-block; margin-right: 25px"><a href="/donatework" type="button" class="btn btn-warning">DONATE</a></div>
+            <!-- <br>
+            <br> -->
+            <div style="display: inline-block"><a href="/getmedwork" type="button" class="btn btn-warning">BUY MEDICINES</a></div>
+        {% elif %}
+        <div style="width: 100%; text-align: center;">
+        <div style="display: inline-block; margin-right: 25px"><a href="/login" type="button" class="btn btn-warning">LOG IN</a></div>
+        <!-- <br>
+        <br> -->
+        <div style="display: inline-block"><a href="/signup" type="button" class="btn btn-warning">SIGN UP</a></div>
+    </div>  
+    {% endif %}
+    </center>
+</div>
+{% endblock body %}

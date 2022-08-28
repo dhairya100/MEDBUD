@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% block body %}
+<form method="POST" action="/getmedwork">
+  {% csrf_token %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<center>
+  <h1 align="center">SELECT A MEDICINE</h1>
+  <hr>
+  <div class="container">
+    <div class="dropdown">
+      <button class="btn btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Select a Medicine
+      </button>
+      <ul class="dropdown-menu">
+        {% for med in meds %}
+        <li><a id="{{forloop.counter}}" href="javascript:medicine_click(this.id)" class="dropdown-item">{{ med.medicine_name }}   Expiry date : {{ med.expiry_date }}</a></li>
+        {% endfor %}
+      </ul>
+      <br>
+      <br>
+      <br>
+      <div class="container">
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label">Medicine Name</label>
+          <input style="width: 600px !important" name="medicine_nameget" class="form-control" id="medicine_name">
+        </div>
+    </div>
+    
+          <br>
+          <br>
+          <br>
+          <center>
+            <h1>USER DETAILS</h1>
+            <HR>
+                <br>
+                <br>
+            <div class="container">
+                <div class="col-md-6">
+                  <label for="inputEmail4" class="form-label">Email</label>
+                  <input style="width: 600px !important" name="emailget" placeholder="Email" type="email" class="form-control" id="inputEmail4">
+                </div>
+                <br>
+                <div class="col-md-6">
+                  <label for="full_name" class="form-label">Full Name</label>
+                  <input style="width: 600px !important" name="nameget" placeholder="Full Name" class="form-control" id="full_name">
+                </div>
+                <br>
+                <div class="col-md-6">
+                  <label for="phone" class="form-label">Phone</label>
+                  <input style="width: 600px !important" type="number" maxlength="10" minlength="10" name="phoneget" placeholder="Phone Number" class="form-control" id="phone">
+                </div>
+                <br>
+                <div class="col-12">
+                  <label for="inputAddress" class="form-label">Address Line 1</label>
+                  <input style="width: 600px !important" name="location1get" type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                </div>
+                <br>
+                <div class="col-12">
+                  <label for="inputAddress2" class="form-label">Address Line 2</label>
+                  <input style="width: 600px !important" name="location2get" type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                </div>
+                <br>
+                <div class="col-md-6">
+                  <label for="inputCity" class="form-label">Address Line 3</label>
+                 <input style="width: 600px !important" name="location3get" placeholder="City, State, Country" type="text" class="form-control" id="inputCity">
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <hr>
+                <br>
+
+                <div class="col-12">
+                  <button type="submit" class="btn btn-success">Get Medicine!</button>
+                </div>
+              </form>
+            </div>
+  </div>
+  <script>
+    function medicine_click(clicked){
+      console.log(clicked)
+      elem = document.getElementById(clicked)
+      console.log(elem)
+      var txttext = document.getElementById("medicine_name")
+      var text = elem.text()
+      txttext = text
+    }
+  </script>
+</center>
+</center>
+{% endblock body %}

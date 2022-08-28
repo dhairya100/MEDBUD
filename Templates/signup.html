@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% block body %}
+<style>
+  html, body
+{
+  height: 100%;
+  margin: 0;
+}
+
+body
+{
+background-image: linear-gradient(to right top, #33a0f1, #2591d9, #1882c1, #0a73aa, #006494);
+}
+
+.header
+{
+	color: white;font-family: 'Yeon Sung';font-size: 45px;letter-spacing: 10px;margin-top: 80px;
+}
+.header img
+{
+	width: 80px;margin-left: -15px;
+}
+
+.login_div
+{
+	background: rgba(255,255,255,0.8);float: none;border-radius: 15px;
+}
+
+.logo
+{
+	width: 80px;margin-top: 30px;border-radius: 40px;
+}
+
+#login_button
+{
+	width: 80%;border-radius: 15px;
+}
+
+h2
+{
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	color: ghostwhite;
+}
+
+#logojpg
+{
+	height: 300px;
+	width: 500px;
+   
+   margin-bottom: 2000px;
+    
+}
+
+h4
+{
+    color:ghostwhite;
+}
+
+#input
+{
+    margin-left: 350px;
+}
+</style>
+<BR>
+  <BR>
+<center>
+  <h1>SIGNUP</h1>
+  <hr>
+<BR><br>
+<h2>CONGRATULATIONS! YOU ARE ONE STEP AWAY FROM YOUR OWN MEDBUD ACCOUNT</h2>
+<h4>TOGETHER LET'S CONTRIBUTE TO THE SOCIETY AND BE A RESPONSIBLE CITIZEN TOWARD MOTHER EARTH</h4>
+<hr>
+<br>
+<br>
+</center>
+<div class="container" id="input">
+  <br><br><br>
+  <form action="/handlesignup" method="POST">
+    {% csrf_token %}
+  <input name="username" placeholder="USERNAME">
+  <BR>
+          <img style="margin-right:350px;" id="logojpg" src="https://i.postimg.cc/nM85vnNs/MEDBUDLOGO.jpg" align="right">
+    <BR><br>
+  <input name="password1" type="password" placeholder="PASSWORD">
+      <br><br><br>
+      <input name="password2" type="password" placeholder="CONFIRM PASSWORD">
+  <BR>
+    <BR><br>
+              <input name="firstname" placeholder="FIRST NAME">
+  <BR>
+    <BR><br>
+              <input name="lastname" placeholder="LAST NAME">
+  <BR>
+    <BR><br>
+              <input name="email" type="email" placeholder="EMAIL ID">
+              <br><br><br>
+              <input name="phone" type="number" maxlength="10" placeholder="PHONE NUMBER">
+		<BR>
+			<BR><br>
+        <button type="submit" class="btn btn-success">SignUp</button>
+        <br>
+        <br>
+    </form>
+          </div>
+{% endblock body %}
